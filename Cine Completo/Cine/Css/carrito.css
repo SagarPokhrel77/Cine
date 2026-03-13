@@ -1,0 +1,154 @@
+/* ===============================
+   GLOBAL RESET
+=============================== */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    background:
+        radial-gradient(circle at top, rgba(255, 215, 0, 0.05), transparent 60%),
+        linear-gradient(135deg, #0f0f0f, #141414, #1a1a1a);
+    color: #fff;
+}
+
+/* ===============================
+   TITULOS Y TEXTO
+=============================== */
+h1 {
+    text-align: center;
+    color: #ffd700;
+    margin-bottom: 10px;
+}
+
+.funcion-info {
+    text-align: center;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: #ccc;
+}
+
+/* ===============================
+   TABLA DEL CARRITO
+=============================== */
+.carrito-table {
+    width: 90%;
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+    border-collapse: collapse;
+    background-color: #1a1a1a;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+}
+
+.carrito-table th,
+.carrito-table td {
+    padding: 12px 15px;
+    text-align: center;
+    border-bottom: 1px solid #333;
+    color: #fff;
+}
+
+.carrito-table th {
+    background-color: #ffd700;
+    color: #141414;
+}
+
+.carrito-table tbody tr:nth-child(even) {
+    background-color: #222;
+}
+
+.carrito-table tr:hover {
+    background-color: #333;
+}
+
+.total-row td {
+    font-size: 1.2rem;
+    font-weight: bold;
+    background-color: #333;
+    color: #ffd700;
+}
+
+/* ===============================
+   IMAGEN PELÍCULA
+=============================== */
+.peli-img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+    border: 1px solid #ffd700;
+    display: block;
+    margin: 0 auto;
+}
+
+/* ===============================
+   BOTONES
+=============================== */
+.form-compra {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.btn-volver,
+.btn-compra {
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Botón volver */
+.btn-volver {
+    transform: translateY(-2px) scale(1.03);
+    background: linear-gradient(135deg, #ffd700, #ffc107);
+    color: #141414;
+}
+
+.btn-volver:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(255, 215, 0, 0.4);
+}
+
+/* Botón finalizar compra */
+.btn-compra {
+    background: linear-gradient(135deg, #ffd700, #ffc107);
+    color: #141414;
+    border: none;
+}
+
+.btn-compra:hover {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 10px 20px rgba(255, 215, 0, 0.5);
+}
+
+/* ===============================
+   RESPONSIVE
+=============================== */
+@media (max-width: 768px) {
+    .carrito-table {
+        width: 95%;
+    }
+
+    .peli-img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .btn-compra,
+    .btn-volver {
+        width: 80%;
+        font-size: 0.9rem;
+        padding: 10px 20px;
+    }
+}

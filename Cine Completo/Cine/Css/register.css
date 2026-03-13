@@ -1,0 +1,167 @@
+/* ===============================
+   RESET
+=============================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ===============================
+   PAGE BACKGROUND
+=============================== */
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at top, rgba(255, 215, 0, 0.08), transparent 60%),
+        linear-gradient(135deg, #0f0f0f, #141414, #1a1a1a);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ===============================
+   REGISTER CARD
+=============================== */
+form {
+    position: relative;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(14px);
+    border-radius: 16px;
+    padding: 35px 40px;
+    width: 100%;
+    max-width: 420px;
+    color: #fff;
+    font-size: 20px;
+
+    /* 🌟 GOLD BORDER SHADOW */
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.7),
+        0 0 0 1px rgb(235, 204, 30),
+        0 0 30px rgb(226, 194, 10);
+}
+
+/* ===============================
+   LOGO
+=============================== */
+form::before {
+    content: "";
+    display: block;
+    width: 180px;
+    height: 180px;
+    margin: 0 auto 20px auto;
+    background-image: url("../Imagenes/logo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 65px;
+}
+
+/* ===============================
+   LABELS
+=============================== */
+label {
+    display: block;
+    margin-bottom: 6px;
+}
+
+/* ===============================
+   INPUTS
+=============================== */
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px 14px;
+    margin-bottom: 18px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    background: rgba(255, 255, 255, 0.9);
+    color: #141414;
+}
+
+input:focus {
+    box-shadow: 0 0 0 2px #ffd700;
+}
+
+/* ===============================
+   PREMIUM GOLD BUTTON
+=============================== */
+input[type="submit"] {
+    position: relative;
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #ffd700, #ffc107);
+    color: #141414;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* SHINE EFFECT */
+input[type="submit"]::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg,
+            transparent,
+            rgba(255, 255, 255, 0.5),
+            transparent);
+    transition: left 0.5s ease;
+}
+
+/* HOVER */
+input[type="submit"]:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.6),
+        0 0 15px rgba(255, 215, 0, 0.6);
+}
+
+input[type="submit"]:hover::before {
+    left: 100%;
+}
+
+/* ACTIVE */
+input[type="submit"]:active {
+    transform: scale(0.98);
+}
+
+/* ===============================
+   LINK (OPTIONAL)
+=============================== */
+a {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+    color: #ffd700;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ===============================
+   MOBILE
+=============================== */
+@media (max-width: 480px) {
+    form {
+        padding: 30px 25px;
+    }
+
+    form::before {
+        width: 140px;
+        height: 140px;
+    }
+}

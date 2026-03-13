@@ -1,0 +1,39 @@
+  .butaca {
+      width: 40px;
+      height: 40px;
+      margin: 3px;
+      text-align: center;
+      line-height: 40px;
+      cursor: pointer;
+      border-radius: 5px;
+  }
+
+  .butaca-disponible {
+      background-color: #7CFC00;
+  }
+
+  /* verde */
+  .butaca-seleccionada {
+      background-color: #FFFF00;
+  }
+
+  /* amarillo */
+  .butaca-ocupada {
+      background-color: #FF0000;
+      cursor: not-allowed;
+  }
+
+  /* rojo */
+  .fila {
+      display: flex;
+      margin-bottom: 5px;
+  }
+
+  .espacio {
+      width: 20px;
+  }
+
+  .pantalla img {
+      width: 550px;
+      height: 50px;
+  }

@@ -1,0 +1,371 @@
+/* GENERAL RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #000;
+    color: #fff;
+}
+
+/* BACKDROP */
+.netflix-detail-container {
+    position: relative;
+    /* min-height: 100vh; */
+    overflow-x: hidden;
+}
+
+/* BACKDROP IMAGE */
+.backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.7);
+    z-index: -2;
+}
+
+.black-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: -1;
+}
+
+/* BACK BUTTON */
+.back-btn {
+    position: fixed;
+    top: 15px;
+    left: 20px;
+    padding: 8px 15px;
+    background: rgba(0, 0, 0, 0.7);
+    color: #eee;
+    font-size: 14px;
+    text-decoration: none;
+    border-radius: 6px;
+    z-index: 10;
+    transition: 0.3s;
+}
+
+.back-btn:hover {
+    background: #f9c004;
+    color: #fff;
+}
+
+/* MAIN CONTENT AREA */
+.detail-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 50px;
+    padding: 30px 60px;
+}
+
+/* POSTER */
+.poster-img img {
+    width: 350px;
+    border-radius: 8px;
+    box-shadow: 0 10px 60px rgba(0, 0, 0, 0.8);
+}
+
+/* INFORMATION */
+.info {
+    max-width: 650px;
+}
+
+/* TITLE */
+.title-netflix {
+    font-size: 52px;
+    font-weight: 900;
+    margin-bottom: 15px;
+}
+
+/* BUTTONS */
+.actions {
+    margin: 20px 0;
+    display: flex;
+    gap: 15px;
+}
+
+.btn-play,
+.btn-list {
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 25px;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.btn-play {
+    background: #fff;
+    color: #000;
+}
+
+.btn-play:hover {
+    background: #e6e6e6;
+}
+
+.btn-list {
+    background: rgba(109, 109, 110, 0.7);
+    color: #fff;
+}
+
+.btn-list:hover {
+    background: rgba(109, 109, 110, 0.9);
+}
+
+/* META INFO */
+.meta-netflix {
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    color: #e5e5e5;
+    margin-bottom: 18px;
+    gap: 8px;
+}
+
+.dot {
+    font-size: 18px;
+    color: #888;
+    margin: 0 6px;
+}
+
+/* SINOPSIS */
+.sinopsis-netflix {
+    font-size: 17px;
+    color: #ddd;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+/* CREDITS */
+.credits-netflix {
+    font-size: 15px;
+    color: #ccc;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .detail-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 100px 20px;
+    }
+
+    .poster-img img {
+        width: 230px;
+    }
+
+    .title-netflix {
+        font-size: 42px;
+    }
+}
+/* POSTER HOVER EFFECT (NETFLIX STYLE) */
+.poster-img {
+    position: relative;
+    transition: transform 0.35s ease;
+}
+
+.poster-img img {
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+    will-change: transform;
+}
+
+/* Hover effect */
+.poster-img:hover img {
+    transform: scale(1.06) translateY(-6px);
+    box-shadow:
+        0 25px 80px rgba(0, 0, 0, 0.9),
+        0 0 25px rgba(237, 218, 5, 0.25);
+}
+.poster-img::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 8px;
+    background: radial-gradient(
+        circle at center,
+        rgba(237, 206, 6, 0.25),
+        transparent 70%
+    );
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    pointer-events: none;
+}
+
+.poster-img:hover::after {
+    opacity: 1;
+}
+
+/* Trailer modal */
+.trailer-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    justify-content: center;
+    align-items: center;
+}
+
+.trailer-content {
+    position: relative;
+    width: 80%;
+    max-width: 900px;
+    aspect-ratio: 16 / 9;
+    background: #000;
+}
+
+.close-btn {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    font-size: 28px;
+    color: white;
+    cursor: pointer;
+}   
+
+/* ======================
+   MODAL TRAILER
+====================== */
+.trailer-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+}
+
+.trailer-modal.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.trailer-content {
+    width: 80%;
+    max-width: 900px;
+    aspect-ratio: 16 / 9;
+    background: #000;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
+}
+
+.trailer-content iframe {
+    width: 100%;
+    height: 100%;
+}
+
+/* 🔹 FIXED CLOSE BUTTON */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    /* visible now */
+    right: 15px;
+    /* some space from right edge */
+    font-size: 26px;
+    color: white;
+    cursor: pointer;
+    z-index: 10000;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.close-btn:hover {
+    transform: scale(1.2);
+    opacity: 0.8;
+}
+
+/* Contenedor general de salas */
+.salas-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: rgba(20, 20, 20, 0.9);
+    color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Título de la sección */
+.salas-container h2 {
+    font-size: 28px;
+    margin-bottom: 25px;
+    text-align: center;
+    color: #f0c711;
+}
+
+/* Bloque de cada sala */
+.sala-block {
+    margin-bottom: 25px;
+    padding: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    background-color: rgba(40, 40, 40, 0.7);
+}
+
+/* Nombre de la sala */
+.sala-block h3 {
+    margin-bottom: 15px;
+    font-size: 22px;
+    color: #ffd700;
+}
+
+/* Contenedor de horarios */
+.horarios {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Botones de horario */
+.btn-hora {
+    background-color: #cb730f;
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-hora:hover {
+    background-color: #ffc800;
+    transform: scale(1.05);
+}
+
+/* Mensaje de no hay funciones */
+.no-funcion {
+    color: #bbb;
+    font-style: italic;
+    font-size: 16px;
+}
+
+/* Para mejor responsive */
+@media (max-width: 600px) {
+    .horarios {
+        flex-direction: column;
+    }
+
+    .btn-hora {
+        width: 100%;
+        text-align: center;
+    }
+}
